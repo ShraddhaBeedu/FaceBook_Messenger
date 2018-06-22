@@ -15,7 +15,7 @@ var result = [];
 
 obj.from.path('./Shops.csv').to.array(function (data){
 	for(var i=1;i<data.length;i++){
-		UpdateCSV(data[i][0]);
+		UpdateCSV(data[i]);
 		
 		}
 });
@@ -25,27 +25,26 @@ obj.from.path('./Shops.csv').to.array(function (data){
 var Facebook = 'Facebook';
 var res = [];
 
-function UpdateCSV(url){
-request(url, function (error, response, html) {
+function UpdateCSV(data){
+request(data[0], function (error, response, html) {
 	if (!error && response.statusCode == 200) {
- 	 res = [];
-       	 res[0] = url
          var str = html.toString();
-         var index = str.match('https://connect.facebook.net/en_US/sdk.js');
+         var index = str.match('Facebook Pixel');
          if(index!=null)
          {
-         	res[1] = 'X';
+         	data[1] = 'X';
          } 
          index = str.match('//connect.facebook.net/en_US/sdk.js');
          if(index!=null)
          {
-        	 res[2] = 'X';
+        	 data[2] = 'X';
          } 
          index = str.match('//connect.facebook.net/en_US/sdk/xfbml.customerchat.js');
          if(index!=null)
          {
-         	res[3] = 'X';
+         	data[3] = 'X';
          }       
+        var res= data.join(',');
         console.log(res);
         writeStream.write(res.toString()+'\n');
 	}
