@@ -2,7 +2,7 @@
 
 Usage_Facebook.js takes the input CSV (Shops.csv) as an input and fills the table with the information   
 if they are using a Facebook Pixel or 
-Facebook Messenger and alos if they have integrated the Facebook Chat Bubble.
+Facebook Messenger and also if they have integrated the Facebook Chat Bubble.
 
 Working:  
 1.  Reads the CSV file for the Webpage URL  
