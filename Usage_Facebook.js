@@ -43,6 +43,7 @@ request(data[0], function (error, response, html) {
          if(index!=null)
          {
          	data[3] = 'X';
+                data[1] = 'X';
          }       
         var res= data.join(',');
         console.log(res);
