@@ -23,7 +23,7 @@ obj.from.path('./Shops.csv').to.array(function (data){
 
 
 var Facebook = 'Facebook';
-var res = [];
+
 
 function UpdateCSV(data){
 request(data[0], function (error, response, html) {
